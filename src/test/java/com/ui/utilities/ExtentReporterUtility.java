@@ -10,10 +10,12 @@ public class ExtentReporterUtility {
 	private static ThreadLocal<ExtentTest> extentTests = new ThreadLocal<ExtentTest>();
 
 	public static void setupSparkreporter(String fileName) {
-		ExtentSparkReporter extentsparkreporter = new ExtentSparkReporter(
-				System.getProperty("user.dir") + "/" + fileName);
-		extentreports = new ExtentReports();
-		extentreports.attachReporter(extentsparkreporter);
+		if (extentreports == null) {
+			ExtentSparkReporter extentsparkreporter = new ExtentSparkReporter(
+					System.getProperty("user.dir") + "/" + fileName);
+			extentreports = new ExtentReports();
+			extentreports.attachReporter(extentsparkreporter);
+		}
 	}
 
 	public static void creatTestentryinReport(String testName) {

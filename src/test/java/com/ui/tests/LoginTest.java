@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import com.ui.pojos.User;
 import com.ui.utilities.LoggerUtililty;
 
-@Listeners({ com.ui.listeners.TestListener.class })
+//@Listeners({ com.ui.listeners.TestListener.class })
 public class LoginTest extends TestBase {
 
 	Logger logger = LoggerUtililty.getLoger(getClass());
