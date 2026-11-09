@@ -1,0 +1,36 @@
+package com.ui.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.constants.DRESSSIZE;
+import com.ui.utilities.BrowserUtility;
+
+public class ProductDetailedPage extends BrowserUtility{
+	
+	private static final By SIZE_DROPDOWN_LOCATOR = By.id("group_1");
+	private static final By ADD_TO_CART_BUTTON_LOCATOR = By.name("Submit");
+	private static final By PROCEED_TO_CHECKOUT_BUTTON_LOCATOR = By.xpath("//a[@title=\"Proceed to checkout\"]");
+
+	public ProductDetailedPage(WebDriver driver) {
+		super(driver);
+	}
+	
+	public ProductDetailedPage changeSize(DRESSSIZE size) {
+		selectFromDropdown(SIZE_DROPDOWN_LOCATOR,size.toString());
+		return new ProductDetailedPage(getDriver());
+	}
+	
+	public ProductDetailedPage AddToCart() {
+		clickOn(ADD_TO_CART_BUTTON_LOCATOR);
+		return new ProductDetailedPage(getDriver());
+
+	}
+	
+	public ShoppingCartPage proceedToCheckout() {
+		clickOn(PROCEED_TO_CHECKOUT_BUTTON_LOCATOR);
+		ShoppingCartPage shoppingcartPage = new ShoppingCartPage(getDriver());
+		return shoppingcartPage;
+	}
+
+}

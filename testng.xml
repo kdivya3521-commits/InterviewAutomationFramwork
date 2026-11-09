@@ -3,22 +3,23 @@
 <suite name="Interview Preparation Framework" parallel="methods"
 	thread-count="8" verbose="1">
 	<listeners>
-        <listener class-name="com.ui.listeners.TestListener" />
-    </listeners>
+		<listener class-name="com.ui.listeners.TestListener" />
+	</listeners>
 	<test name="Valid Login Test">
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="isLambdaTest" value="false"></parameter>
 		<parameter name="isHeadless" value="false"></parameter>
 		<classes>
 			<class name="com.ui.tests.LoginTest" />
-		</classes>
-	</test>
-		<test name="Invalid Login Test">
-		<parameter name="browser" value="chrome"></parameter>
-		<parameter name="isLambdaTest" value="false"></parameter>
-		<parameter name="isHeadless" value="false"></parameter>
-		<classes>
 			<class name="com.ui.tests.InvalidLoginTest" />
+			<class name="com.ui.tests.AddAddressTest" />
+			<class name="com.ui.tests.SearchProductTest" />
+			<class name="com.ui.tests.ProductCheckoutTest" />
+
+
+
 		</classes>
 	</test>
+
+
 </suite>	
